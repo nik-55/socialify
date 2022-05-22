@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar';
 import { props, userDetails } from '../../types';
 import { onValue, database, ref } from '../../services/firebase';
+
 const Home = (props: props) => {
   const [userDetails, setUserDetails] = useState<userDetails>();
-  async function scanning_user() {
+
+  let scanning_user = () => {
     try {
-      await onValue(ref(database, 'socialify/users/' + props.user.uid),
+      onValue(ref(database, 'socialify/users/' + props.user.uid),
         (snapshot) => { setUserDetails(snapshot.val()); });
     }
     catch (error) { console.log(error); }
@@ -15,7 +17,6 @@ const Home = (props: props) => {
   useEffect(() => {
     scanning_user();
   }, [])
-
 
   return (
     <>
