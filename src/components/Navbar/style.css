@@ -1,0 +1,29 @@
+* {
+    margin: 4px;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #ff8686;
+    border-radius: 4px;
+}
+
+.navbar {
+    overflow: auto;
+}
+
+.navbar li {
+    float: left;
+    margin: 3px 30px;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+button {
+    cursor: pointer;
+}
