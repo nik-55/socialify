@@ -1,7 +1,6 @@
 import { clean_field, empty_validation } from "../../logic/extra"
 import { set, database, ref, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "../../services/firebase"
 
-
 function signup() {
     const signup_email = document.getElementById("signup_email")! as HTMLInputElement
     const signup_password = document.getElementById("signup_password")! as HTMLInputElement
@@ -12,8 +11,9 @@ function signup() {
 
     let user_interests: string[] = [];
     for (let i = 0; i < signup_interest.options.length; i++)
-        if (signup_interest.options[i].selected)
+        if (signup_interest.options[i].selected) {
             user_interests.push(signup_interest.options[i].value);
+            signup_interest.options[i].selected=false; }
 
     if (validation && user_interests.length !== 0) {
         createUserWithEmailAndPassword(auth, signup_email.value, signup_password.value)
@@ -35,7 +35,7 @@ function signup() {
 
     }
 
-    else alert("Cannot Leave Field Empty");
+    else alert("Cannot Leave Field Empty"); 
 }
 
 
