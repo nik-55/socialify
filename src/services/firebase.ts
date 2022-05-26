@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,onAuthStateChanged } from "firebase/auth";
 import { getDatabase, set, ref, onValue } from "firebase/database"
-import { getStorage,ref as sref,uploadBytes } from "firebase/storage";
+import { getStorage,ref as sref,uploadBytes,getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAQ8qv_wq-1rWWse9tfVx0cmOPmGo9cVps",
@@ -19,4 +19,4 @@ const database = getDatabase(app);
 const storage = getStorage(app);
 
 export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, set, ref, onValue, database,onAuthStateChanged,
-storage,sref,uploadBytes}
+storage,sref,uploadBytes,getDownloadURL}
