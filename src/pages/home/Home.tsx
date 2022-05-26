@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar';
 import { props, userDetails } from '../../types';
 import { onValue, database, ref } from '../../services/firebase';
+import Postbox from '../Postbox';
+import Display from '../Display';
 
 const Home = (props: props) => {
   const [userDetails, setUserDetails] = useState<userDetails>();
@@ -15,12 +17,15 @@ const Home = (props: props) => {
   }
 
   useEffect(() => {
-    scanning_user();
+    let unsuscribe=scanning_user();
+    return unsuscribe
   }, [])
 
   return (
     <>
       <Navbar user={props.user} userDetails={userDetails} />
+      <Postbox user={props.user} userDetails={userDetails}/>
+      <Display user={props.user} userDetails={userDetails}/>
     </>
   )
 }
