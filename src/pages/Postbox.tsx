@@ -19,16 +19,15 @@ const postbox = (props: props) => {
           user_interests.push(signup_interest.options[i].value);
           signup_interest.options[i].selected = false;
         }
-        if(user_interests.length!==0){
-      const extension = image.value.substring(image.value.lastIndexOf('.') + 1).toLowerCase();
-      if (extension === "png" || extension === "jpeg" || extension === "jpg") {
-        const postTime = time();
+      if (user_interests.length !== 0) {
+        const extension = image.value.substring(image.value.lastIndexOf('.') + 1).toLowerCase();
+        if (extension === "png" || extension === "jpeg" || extension === "jpg") {
+          const postTime = time();
 
-        const imageref = sref(storage, "socialify/posts/images/" + props.user.uid + "/" + postTime);
-        console.log(image.files[0])
-        uploadBytes(imageref, image.files[0]).then((snapshot) => {
-          getDownloadURL(sref(storage, 'socialify/posts/images/' + props.user.uid + "/" + postTime)).
-            then((url) => {
+          const imageref = sref(storage, "socialify/posts/images/" + props.user.uid + "/" + postTime);
+          console.log(image.files[0])
+          uploadBytes(imageref, image.files[0]).then((snapshot) => {
+            getDownloadURL(sref(storage, 'socialify/posts/images/' + props.user.uid + "/" + postTime)).then((url) => {
               const image_src = url;
               const reference = ref(database, "socialify/posts/" + props.user.uid + "/" + postTime)
               set(reference, {
@@ -37,16 +36,21 @@ const postbox = (props: props) => {
                 postTime,
                 image_src,
                 postInterest: user_interests.sort(),
+                number_of_likes: 0,
+                number_of_dislikes: 0,
+                reactedlike : false,
+                reacteddislike : false,
               });
               box.value = "";
             })
-          console.log('Uploaded a blob or file!');
+            console.log('Uploaded a blob or file!');
 
-          image.value = "";
-        });
+            image.value = "";
+          });
 
+        }
+        else alert("Upload a Valid image")
       }
-      else alert("Upload a Valid image") }
       else alert("Select Interest Tags")
     }
     else alert("Don't leave field empty")

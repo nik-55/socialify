@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import { database, ref, onValue } from '../services/firebase'
 import { userDetails } from "../types"
+import Post from './home/Post';
 type post = {
     postMessage: string;
     postTime: string;
     userDetails: userDetails;
     image_src: string,
-    postInterest: string[]
+    postInterest: string[],
+    number_of_likes: number,
+    number_of_dislikes : number,
+    reactedlike : boolean,
+    reacteddislike : boolean,
 }[]
 
 type postitem = {
@@ -14,7 +19,11 @@ type postitem = {
     postTime: string;
     userDetails: userDetails;
     image_src: string,
-    postInterest: string[]
+    postInterest: string[],
+    number_of_likes: number,
+    number_of_dislikes : number,
+    reactedlike : boolean,
+    reacteddislike : boolean,
 }
 
 type props={
@@ -62,14 +71,11 @@ const Display = (props: props) => {
    
 
     return (
-        <ol>
+        <div>
             {display ? display.map((element) => {
-                return <li style={{ border: "2px solid black" }} key={element.postTime}><h4>{element.userDetails.username} :</h4>
-                    <img src={element.image_src} style={{ width: "100px", height: "100px" }} />
-                    <p>{element.postMessage}</p>
-                    <br /><small>{(element.postTime)}</small></li>
+                return <Post element={element} key={element.postTime}/>
             }) : "Loading posts...."}
-        </ol>
+        </div>
     )
 }
 
