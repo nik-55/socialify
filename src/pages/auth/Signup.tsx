@@ -6,8 +6,8 @@ import { signup } from './logic'
 const Signup: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false);
     const interest_array: string[] = ["Investing", "Technology", "Singing And Dancing", "Sports", "Reading And Writing"]
-    const [user_interests,setUserInterest]=useState<string[]>([])
-    function close(){
+    const [user_interests, setUserInterest] = useState<string[]>([])
+    function save() {
         const signup_interest = document.getElementById("signup_interest")! as HTMLSelectElement;
         let user_interests: string[] = [];
         for (let i = 0; i < signup_interest.options.length; i++)
@@ -15,7 +15,7 @@ const Signup: React.FC = () => {
                 user_interests.push(signup_interest.options[i].value);
                 signup_interest.options[i].selected = false;
             }
-            setUserInterest(user_interests)
+        setUserInterest(user_interests)
     }
     return (
         <div id='signup_div'>
@@ -24,7 +24,8 @@ const Signup: React.FC = () => {
             <input placeholder='Password' id='signup_password' type={"password"} />
             <button onClick={() => { setOpen(true) }} id="signup_interest_btn">Interests</button>
 
-            {open && <Modal close={close} open={setOpen} component={<Interest interest_array={interest_array} />} />}
+            {open && <Modal save={save} open={setOpen} component={<Interest interest_array={interest_array} />} />
+            }
 
             <button id='signup_btn' onClick={() => { signup(user_interests); }}>Sign Up</button>
         </div>
