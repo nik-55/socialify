@@ -1,3 +1,4 @@
+import { User } from 'firebase/auth';
 import React, { useState } from 'react'
 import { database, ref, onValue } from '../services/firebase'
 import { userDetails } from "../types"
@@ -10,8 +11,7 @@ type post = {
     postInterest: string[],
     number_of_likes: number,
     number_of_dislikes : number,
-    reactedlike : boolean,
-    reacteddislike : boolean,
+
 }[]
 
 type postitem = {
@@ -22,18 +22,17 @@ type postitem = {
     postInterest: string[],
     number_of_likes: number,
     number_of_dislikes : number,
-    reactedlike : boolean,
-    reacteddislike : boolean,
+
 }
 
 type props={
+    user:User
     userDetails:userDetails|undefined
 }
 
 const Display = (props: props) => {
     const [display, setDisplay] = useState<post>();
     const [call, setCall] = useState<boolean>(true);
-    const [check, setCheck] = useState<boolean>(false)
 
     let reference = ref(database, "socialify/posts");
 
@@ -73,7 +72,7 @@ const Display = (props: props) => {
     return (
         <div>
             {display ? display.map((element) => {
-                return <Post element={element} key={element.postTime}/>
+                return <Post element={element} key={element.postTime} user={props.user}/>
             }) : "Loading posts...."}
         </div>
     )

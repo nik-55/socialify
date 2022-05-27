@@ -38,8 +38,6 @@ const postbox = (props: props) => {
                 postInterest: user_interests.sort(),
                 number_of_likes: 0,
                 number_of_dislikes: 0,
-                reactedlike : false,
-                reacteddislike : false,
               });
               box.value = "";
             })

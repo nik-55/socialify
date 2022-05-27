@@ -27,7 +27,7 @@ const Home = (props: props) => {
       <Navbar user={props.user} userDetails={userDetails} />
       {/* <Postbox user={props.user} userDetails={userDetails}/> */}
       <Upload user={props.user} userDetails={userDetails}/>
-      <Display userDetails={userDetails}/>
+      <Display userDetails={userDetails} user={props.user}/>
     </>
   )
 }
