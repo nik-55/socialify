@@ -3,6 +3,7 @@ import React from 'react'
 type props = {
     open: React.Dispatch<React.SetStateAction<boolean>>,
     component: JSX.Element,
+    close:()=>void
 }
 
 const Modal = (props: props) => {
@@ -11,7 +12,9 @@ const Modal = (props: props) => {
         <div className='modal_bg'>
             <div className="modal">
                 {props.component}
-                <button onClick={() => { props.open(false) }}>Close</button>
+                <button onClick={() => { 
+                    props.close();
+                    props.open(false); }}>Close</button>
             </div>
         </div>
     )

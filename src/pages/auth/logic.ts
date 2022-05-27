@@ -2,20 +2,20 @@ import { clean_field, empty_validation } from "../../logic/extra"
 import { set, database, ref, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "../../services/firebase"
 
 
-function signup() {
+function signup(user_interests:string[]) {
     const signup_email = document.getElementById("signup_email")! as HTMLInputElement
     const signup_password = document.getElementById("signup_password")! as HTMLInputElement
     const signup_username = document.getElementById("signup_username")! as HTMLInputElement
-    const signup_interest = document.getElementById("signup_interest")! as HTMLSelectElement;
+    // const signup_interest = document.getElementById("signup_interest")! as HTMLSelectElement;
 
     const validation: boolean = empty_validation([signup_email, signup_password, signup_username]);
 
-    let user_interests: string[] = [];
-    for (let i = 0; i < signup_interest.options.length; i++)
-        if (signup_interest.options[i].selected) {
-            user_interests.push(signup_interest.options[i].value);
-            signup_interest.options[i].selected = false;
-        }
+    // let user_interests: string[] = [];
+    // for (let i = 0; i < signup_interest.options.length; i++)
+    //     if (signup_interest.options[i].selected) {
+    //         user_interests.push(signup_interest.options[i].value);
+    //         signup_interest.options[i].selected = false;
+    //     }
 
     if (validation && user_interests.length !== 0) {
         createUserWithEmailAndPassword(auth, signup_email.value, signup_password.value)
@@ -25,7 +25,7 @@ function signup() {
                 set(ref(database, 'socialify/users/' + user_id), {
                     username: signup_username.value,
                     uid: user_id,
-                    interests: user_interests,
+                    interests: user_interests.sort(),
                     email : userCredential.user.email,
                 });
 
