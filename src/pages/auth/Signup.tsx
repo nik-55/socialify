@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import Modal from '../../components/modal/Modal';
 import Interest from '../../components/Interest'
 import { signup } from './logic'
+import { useNavigate } from 'react-router-dom'
 
 const Signup: React.FC = () => {
+    const navigate = useNavigate();
     const [open, setOpen] = useState<boolean>(false);
     const interest_array: string[] = ["Investing", "Technology", "Singing And Dancing", "Sports", "Reading And Writing"]
     const [user_interests, setUserInterest] = useState<string[]>([])
@@ -27,7 +29,7 @@ const Signup: React.FC = () => {
             {open && <Modal save={save} open={setOpen} component={<Interest interest_array={interest_array} />} />
             }
 
-            <button id='signup_btn' onClick={() => { signup(user_interests); }}>Sign Up</button>
+            <button id='signup_btn' onClick={() => { signup(user_interests,navigate); }}>Sign Up</button>
         </div>
     )
 }

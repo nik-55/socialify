@@ -1,8 +1,9 @@
+import { NavigateFunction } from "react-router-dom"
 import { clean_field, empty_validation } from "../../logic/extra"
 import { set, database, ref, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "../../services/firebase"
 
 
-function signup(user_interests:string[]) {
+function signup(user_interests:string[],navigate:NavigateFunction) {
     const signup_email = document.getElementById("signup_email")! as HTMLInputElement
     const signup_password = document.getElementById("signup_password")! as HTMLInputElement
     const signup_username = document.getElementById("signup_username")! as HTMLInputElement
@@ -31,6 +32,7 @@ function signup(user_interests:string[]) {
 
                 clean_field([signup_email, signup_password, signup_username]);
                 console.log("Created Successfully");
+                navigate({pathname:"/socialify"})
             })
             .catch((error) => {
                 alert(error.message);
@@ -43,7 +45,7 @@ function signup(user_interests:string[]) {
 
 
 
-function login() {
+function login(navigate:NavigateFunction) {
     const login_email = document.getElementById("login_email")! as HTMLInputElement
     const login_password = document.getElementById("login_password")! as HTMLInputElement
 
@@ -54,7 +56,8 @@ function login() {
 
             .then((userCredential) => {
                 console.log("Logged In as " + auth.currentUser?.email);
-                clean_field([login_email, login_password])
+                clean_field([login_email, login_password]);
+                navigate({ pathname: "/socialify" })
             })
 
             .catch((error) => {
@@ -65,10 +68,11 @@ function login() {
     else alert("Cannot Leave Field Empty");
 }
 
-function signout() {
+function signout(navigate:NavigateFunction) {
     try {
         console.log("Signing out...")
-        signOut(auth)
+        signOut(auth);
+        navigate({pathname:"/"});
     }
     catch (error) { console.log(error); }
 }
