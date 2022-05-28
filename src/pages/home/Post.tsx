@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import { userDetails } from "../../types"
 import { database, update, ref, onValue } from "../../services/firebase"
 import { User } from 'firebase/auth'
+import Modal from "../../components/modal/Modal"
+import Comment from "./Comment"
 
 type props = {
     user: User
@@ -19,7 +21,10 @@ const Post = (props: props) => {
     const [liked, setLiked] = useState<boolean>()
     const [disliked, setDisliked] = useState<boolean>()
     const [call, setCall] = useState<boolean>(true)
-    const reference = `socialify/posts/${props.element.userDetails.uid}/${props.element.postTime}`
+    const [open, setOpen] = useState<boolean>(false);
+    const reference=`socialify/posts/${props.element.userDetails.uid}/${props.element.postTime}`
+
+
     function reading() {
         onValue(ref(database, reference + `/users/${props.user.uid}`), (snapshot) => {
             if (snapshot.exists()) {
@@ -36,6 +41,7 @@ const Post = (props: props) => {
     }
 
     if (call) reading();
+
     function increment() {
         if (!liked && !disliked) {
             update(ref(database, reference), {
@@ -77,6 +83,8 @@ const Post = (props: props) => {
         }
     }
 
+    
+
     return (
         <div style={{ border: "2px solid black" }}>
             <h4>{props.element.userDetails.username} :</h4>
@@ -88,6 +96,9 @@ const Post = (props: props) => {
             <button onClick={() => {
                 decrement()
             }}>DisLike</button>
+            <button onClick={()=>{setOpen(true)}}>Replies</button>
+            {open && <Modal  open={setOpen} component={<Comment/>} />
+            }
             <br /><small>{(props.element.postTime)}</small>
         </div>
     )

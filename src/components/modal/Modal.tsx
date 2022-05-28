@@ -14,10 +14,10 @@ const Modal = (props: props) => {
                 {props.component}
                 <button onClick={() => { 
                     props.open(false); }}>Close</button>
-                    <button onClick={props.save}>Post</button>
+                    {props.save?<button onClick={props.save}>Post</button>:""}
             </div>
         </div>
     )
 }
 
-export default Modal
+export default Modal;

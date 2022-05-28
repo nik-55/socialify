@@ -7,9 +7,11 @@ import { getApi } from '../../logic/api'
 const Navbar = (props: props) => {
   const [src, setSrc] = useState<string>();
   useEffect(() => {
-    getApi("https://randomuser.me/api/").then((image_link) => {
+
+    getApi("https://avatars.dicebear.com/api/avataaars/").then((image_link) => {
       setSrc(image_link);
     });
+
   }, [])
   return (
     <header>
