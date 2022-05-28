@@ -1,5 +1,5 @@
 import React from 'react'
-import { set, ref, database, storage, sref, uploadBytes, getDownloadURL } from "../services/firebase"
+import { set, ref, database, storage, sref, uploadBytes, getDownloadURL,push } from "../services/firebase"
 import { time } from '../logic/extra'
 import Interest from '../components/Interest'
 import { props } from '../types'
@@ -29,7 +29,8 @@ const postbox = (props: props) => {
           uploadBytes(imageref, image.files[0]).then((snapshot) => {
             getDownloadURL(sref(storage, 'socialify/posts/images/' + props.user.uid + "/" + postTime)).then((url) => {
               const image_src = url;
-              const reference = ref(database, "socialify/posts/" + props.user.uid + "/" + postTime)
+              const refer = ref(database, "socialify/posts/" + props.user.uid);
+              const reference=push(refer);
               set(reference, {
                 userDetails: props.userDetails,
                 postMessage: box.value,
@@ -38,6 +39,7 @@ const postbox = (props: props) => {
                 postInterest: user_interests.sort(),
                 number_of_likes: 0,
                 number_of_dislikes: 0,
+                postKey:reference.key
               });
               box.value = "";
             })

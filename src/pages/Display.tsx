@@ -11,7 +11,7 @@ type post = {
     postInterest: string[],
     number_of_likes: number,
     number_of_dislikes : number,
-
+    postKey:string
 }[]
 
 type postitem = {
@@ -22,7 +22,7 @@ type postitem = {
     postInterest: string[],
     number_of_likes: number,
     number_of_dislikes : number,
-
+    postKey:string
 }
 
 type props={
@@ -72,7 +72,7 @@ const Display = (props: props) => {
     return (
         <div>
             {display ? display.map((element) => {
-                return <Post element={element} key={element.postTime} user={props.user}/>
+                return <Post element={element} key={element.postTime} user={props.user} userDetails={props.userDetails}/>
             }) : "Loading posts...."}
         </div>
     )

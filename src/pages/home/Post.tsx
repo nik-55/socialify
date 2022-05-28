@@ -15,14 +15,16 @@ type props = {
         postInterest: string[];
         number_of_likes: number,
         number_of_dislikes: number,
-    }
+        postKey:string
+    } ,
+    userDetails?: userDetails
 }
 const Post = (props: props) => {
     const [liked, setLiked] = useState<boolean>()
     const [disliked, setDisliked] = useState<boolean>()
     const [call, setCall] = useState<boolean>(true)
     const [open, setOpen] = useState<boolean>(false);
-    const reference=`socialify/posts/${props.element.userDetails.uid}/${props.element.postTime}`
+    const reference=`socialify/posts/${props.element.userDetails.uid}/${props.element.postKey}`
 
 
     function reading() {
@@ -97,7 +99,7 @@ const Post = (props: props) => {
                 decrement()
             }}>DisLike</button>
             <button onClick={()=>{setOpen(true)}}>Replies</button>
-            {open && <Modal  open={setOpen} component={<Comment/>} />
+            {open && <Modal  open={setOpen} component={<Comment user={props.userDetails} postkey={props.element.postKey}/>} />
             }
             <br /><small>{(props.element.postTime)}</small>
         </div>
