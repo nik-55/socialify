@@ -11,6 +11,15 @@
 }
 
 .modal{
-    background-color: #fff;
-    width: 600px;
+    background-color: rgb(255, 238, 238);
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal button {
+    background-color: rgb(186, 255, 232);
+    width: 40px;
+    display: flex;
 }

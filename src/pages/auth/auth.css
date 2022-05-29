@@ -1,0 +1,15 @@
+#login_div , #signup_div{
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    margin-left: 40%;
+    width: 250px;
+    background-color: blanchedalmond;
+}
+
+#login_btn,#signup_btn{
+    background-color: rgb(78, 72, 248);
+    color: white;
+    margin: 10px;
+}
+

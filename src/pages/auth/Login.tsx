@@ -2,20 +2,22 @@ import React from 'react'
 import { login } from './logic'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
-
+import Org from '../../components/Org';
 
 const Login = () => {
     const navigate = useNavigate();
 
 
     return (
-        <div id='login_div'>
+        <>
+            <Org />
+            <div id='login_div'>
 
-            <input placeholder='Email' id='login_email' type={"email"} />
-            <input placeholder='Password' id='login_password' type={"password"} />
-            <button id='login_btn' onClick={()=>{login(navigate) ; }}>Login</button>
-            <small> Don't have an account? <Link to="/signup">Sign Up</Link></small>
-        </div>
+                <input placeholder='Email' className='input' id='login_email' type={"email"} autoComplete="off" />
+                <input placeholder='Password' className="input" id='login_password' type={"password"} autoComplete="off" />
+                <button id='login_btn' onClick={() => { login(navigate); }}>Login</button>
+                <small> Don't have an account? <Link to="/signup">Sign Up</Link></small>
+            </div></>
     )
 }
 

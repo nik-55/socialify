@@ -1,0 +1,39 @@
+@import "../src/pages/auth/auth.css";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+.input{
+    display: block;
+    margin: 3px;
+    padding: 1px;
+}
+
+button{
+    cursor: pointer;
+    display: flex;
+    margin: 3px;
+    padding: 1px;
+}
+
+a {
+    text-decoration:none;
+    color: blue;
+}
+
+#org {
+    color: darkolivegreen;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    margin-left: 40%;
+    margin-top: 2%;
+}
+
+
