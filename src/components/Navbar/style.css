@@ -6,7 +6,7 @@
     position: fixed;
     top:0;
     left:0;
-    display: block
+    display: flex;
 }
 
 .navtab:hover {
@@ -60,6 +60,5 @@
 #modal_profile span {
     margin: 6px;
 }
-
 
 
