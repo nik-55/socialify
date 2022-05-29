@@ -32,7 +32,7 @@ function signup(user_interests:string[],navigate:NavigateFunction) {
 
                 clean_field([signup_email, signup_password, signup_username]);
                 console.log("Created Successfully");
-                navigate({pathname:"/socialify"})
+                navigate({pathname:"/"})
             })
             .catch((error) => {
                 alert(error.message);
@@ -57,7 +57,7 @@ function login(navigate:NavigateFunction) {
             .then((userCredential) => {
                 console.log("Logged In as " + auth.currentUser?.email);
                 clean_field([login_email, login_password]);
-                navigate({ pathname: "/socialify" })
+                navigate({ pathname: "/" })
             })
 
             .catch((error) => {
@@ -72,7 +72,7 @@ function signout(navigate:NavigateFunction) {
     try {
         console.log("Signing out...")
         signOut(auth);
-        navigate({pathname:"/"});
+        navigate({pathname:"/login"});
     }
     catch (error) { console.log(error); }
 }
