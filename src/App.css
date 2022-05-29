@@ -2,6 +2,7 @@
 @import "../src/components/Navbar/style.css";
 @import "../src/components/upload.css";
 @import "../src/pages/home/post.css";
+@import "../src/pages/home/comment.css";
 
 .input {
     display: block;

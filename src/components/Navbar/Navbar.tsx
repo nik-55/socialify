@@ -23,16 +23,16 @@ const Navbar = (props: props) => {
 
   return (
     <header>
-      <nav className="navbar">
-        <ul>
-          <a href='/'><li className='navtab'>Socialify</li></a>
-          <li><img src={src} id={"user_image"} alt={"Oops!!"}
-            onClick={() => { setOpen(true) }} /></li>
-          {open ? <Modal open={setOpen} component={<Profile source={src} userDetails={props.userDetails} />} /> : ""}
-          <li className='navtab' onClick={() => { setOpen(true) }}>{props.userDetails?.username}</li>
-          <li className='navtab'><button id='signout_btn' onClick={() => { signout(navigate) }}>Signout</button></li>
-        </ul>
-      </nav>
+        <nav className="navbar">
+          <ul>
+            <a href='/'><li className='navtab'>Socialify</li></a>
+            <li><img src={src} id={"user_image"} alt={"Oops!!"}
+              onClick={() => { setOpen(true) }} /></li>
+            {open ? <Modal open={setOpen} component={<Profile source={src} userDetails={props.userDetails} />} /> : ""}
+            <li className='navtab' onClick={() => { setOpen(true) }}>{props.userDetails?.username}</li>
+            <li className='navtab'><button id='signout_btn' onClick={() => { signout(navigate) }}>Signout</button></li>
+          </ul>
+        </nav>
     </header>
   )
 }

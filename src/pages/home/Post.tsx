@@ -103,7 +103,7 @@ const Post = (props: props) => {
             <button className='fa-solid fa-comment ldrbtn' onClick={() => { setOpen(true) }}></button>
             {open && <Modal open={setOpen} component={<Comment user={props.userDetails} postkey={props.element.postKey} />} />}
 
-            <br /><small>{(props.element.postTime)}</small>
+            <br/> <small className='small_txt'>{(props.element.postTime)}</small>
         </div>
 
     )

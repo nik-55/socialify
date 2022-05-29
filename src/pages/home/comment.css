@@ -1,0 +1,15 @@
+.comment_username{
+    background-color:darkgray;
+    margin-right: 4px ;
+}
+
+.comment_btn{
+    width: 70px !important;
+    margin-top: 9px;
+}
+
+.comment_div{
+    justify-content: center;
+    align-items: center;
+    margin: 7px;
+}

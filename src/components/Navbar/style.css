@@ -1,8 +1,12 @@
 .navbar {
     background-color: #1d1717;
     overflow: auto;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
+    position: fixed;
+    top:0;
+    left:0;
+    display: block
 }
 
 .navtab:hover {
@@ -40,6 +44,8 @@
 
 #signout_btn {
     background-color: rgb(255, 0, 0);
+    color: white;
+    margin-right: 77px;
 }
 
 #modal_img {
@@ -54,3 +60,6 @@
 #modal_profile span {
     margin: 6px;
 }
+
+
+
