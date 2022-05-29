@@ -1,0 +1,28 @@
+.post_div {
+    border: 1px solid black;
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+.post_img{
+    width: 800px;
+    height: 600px;
+    margin: 8px;
+    margin-left: 200px;
+}
+ 
+
+.ldrbtn {
+    background-color: bisque;
+    width: 50px;
+    margin-left: 6px;
+    height: 30px;
+}
+
+.post_para{
+    margin: 6px;
+    font-size: large;
+    font-style: italic;
+}

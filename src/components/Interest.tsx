@@ -1,8 +1,8 @@
 import React from 'react'
-type props={
+type props = {
     interest_array: string[]
 }
-const Interest = (props:props) => {
+const Interest = (props: props) => {
     return (
         <div>
             <select id='signup_interest' multiple>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { set, ref, database, storage, sref, uploadBytes, getDownloadURL,push } from "../services/firebase"
+import { set, ref, database, storage, sref, uploadBytes, getDownloadURL, push } from "../services/firebase"
 import { time } from '../logic/extra'
 import Interest from '../components/Interest'
 import { props } from '../types'
@@ -30,7 +30,7 @@ const postbox = (props: props) => {
             getDownloadURL(sref(storage, 'socialify/posts/images/' + props.user.uid + "/" + postTime)).then((url) => {
               const image_src = url;
               const refer = ref(database, "socialify/posts/" + props.user.uid);
-              const reference=push(refer);
+              const reference = push(refer);
               set(reference, {
                 userDetails: props.userDetails,
                 postMessage: box.value,
@@ -39,7 +39,7 @@ const postbox = (props: props) => {
                 postInterest: user_interests.sort(),
                 number_of_likes: 0,
                 number_of_dislikes: 0,
-                postKey:reference.key
+                postKey: reference.key
               });
               box.value = "";
             })
@@ -57,10 +57,10 @@ const postbox = (props: props) => {
   }
   return (
     <div>
-      <textarea id='postbox' placeholder='Type Your Post' />
-      <input type={"file"} id="uploadImage" />
-      <button onClick={postContent}>Post</button>
+      <textarea id='postbox' placeholder='Type Your Post' className='upload_items'/>
+      <input type={"file"} id="uploadImage" className='upload_items'/>
       <Interest interest_array={props.userDetails ? props.userDetails.interests : [""]} />
+      <button onClick={postContent} className='upload_items'>Post</button>
     </div>
   )
 }

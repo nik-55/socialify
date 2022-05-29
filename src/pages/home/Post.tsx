@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { userDetails } from "../../types"
 import { database, update, ref, onValue } from "../../services/firebase"
 import { User } from 'firebase/auth'
@@ -15,8 +15,8 @@ type props = {
         postInterest: string[];
         number_of_likes: number,
         number_of_dislikes: number,
-        postKey:string
-    } ,
+        postKey: string
+    },
     userDetails?: userDetails
 }
 const Post = (props: props) => {
@@ -24,7 +24,7 @@ const Post = (props: props) => {
     const [disliked, setDisliked] = useState<boolean>()
     const [call, setCall] = useState<boolean>(true)
     const [open, setOpen] = useState<boolean>(false);
-    const reference=`socialify/posts/${props.element.userDetails.uid}/${props.element.postKey}`
+    const reference = `socialify/posts/${props.element.userDetails.uid}/${props.element.postKey}`
 
 
     function reading() {
@@ -85,24 +85,27 @@ const Post = (props: props) => {
         }
     }
 
-    
+
 
     return (
-        <div style={{ border: "2px solid black" }}>
-            <h4>{props.element.userDetails.username} :</h4>
-            <img src={props.element.image_src} alt={"oops"} style={{ width: "100px", height: "100px" }} />
-            <p>{props.element.postMessage}</p>
-            <small>Likes : {props.element.number_of_likes}</small>
-            <small>Dislikes : {props.element.number_of_dislikes}</small>
-            <button onClick={() => { increment() }}>LIke</button>
-            <button onClick={() => {
-                decrement()
-            }}>DisLike</button>
-            <button onClick={()=>{setOpen(true)}}>Replies</button>
-            {open && <Modal  open={setOpen} component={<Comment user={props.userDetails} postkey={props.element.postKey}/>} />
-            }
+        <div className="post_div">
+            <span className='block'>{props.element.userDetails.username}</span>
+            <img src={props.element.image_src} alt={"oops"} className="post_img" />
+            <p className='post_para'>{props.element.postMessage}</p>
+
+
+            <button className='fa-solid fa-thumbs-up ldrbtn' onClick={() => { increment() }}>
+                <small> {props.element.number_of_likes}</small></button>
+
+            <button className='fa-solid fa-thumbs-down ldrbtn' onClick={() => { decrement() }}>
+                <small> {props.element.number_of_dislikes}</small></button>
+
+            <button className='fa-solid fa-comment ldrbtn' onClick={() => { setOpen(true) }}></button>
+            {open && <Modal open={setOpen} component={<Comment user={props.userDetails} postkey={props.element.postKey} />} />}
+
             <br /><small>{(props.element.postTime)}</small>
         </div>
+
     )
 }
 

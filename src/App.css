@@ -1,21 +1,27 @@
 @import "../src/pages/auth/auth.css";
 @import "../src/components/Navbar/style.css";
+@import "../src/components/upload.css";
+@import "../src/pages/home/post.css";
 
-.input{
+.input {
     display: block;
     margin: 3px;
     padding: 1px;
 }
 
-button{
+button {
     cursor: pointer;
     display: flex;
     margin: 3px;
     padding: 1px;
 }
 
+button:hover {
+    background-color: rgb(183, 255, 231);
+}
+
 a {
-    text-decoration:none;
+    text-decoration: none;
     color: blue;
 }
 

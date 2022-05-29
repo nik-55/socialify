@@ -1,0 +1,18 @@
+#upload_btn {
+    width: 70px;
+    height: 70px;
+    font-size: xx-large;
+    border-radius: 100px;
+    margin-left: 2%;
+    margin-top: 12px;
+}
+
+.upload_items {
+    margin: 7px;
+    margin-left: 4px;
+}
+
+#signup_interest {
+    width: 200px;
+    height: 130px;
+}
