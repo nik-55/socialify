@@ -34,7 +34,7 @@ const Signup: React.FC = () => {
             }
 
             <button id='signup_btn' onClick={() => { signup(user_interests,navigate); }}>Sign Up</button>
-            <small> Already have an account? <Link to="/Login">Login</Link></small>
+            <small> Already have an account? <Link to="/login">Login</Link></small>
         </div>
         </>
     )

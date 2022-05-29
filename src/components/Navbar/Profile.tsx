@@ -8,21 +8,18 @@ type props = {
 
 const Profile = (props: props) => {
     return (
-        <div>
+        <div id='modal_profile'>
 
-            <img src={props.source} className={"user_image"} alt={"Oops!!"} />
-            <br />
+            <img className='block' src={props.source} id={"modal_img"} alt={"Oops!!"} />
 
-            <small>Username : </small>
-            <h4>{props.userDetails?.username}</h4>
+            <span className='block'>Username : {props.userDetails?.username}</span>
 
-            <small>Email : </small>
-            <h4>{props.userDetails?.email}</h4>
+            <span className='block'>Email : {props.userDetails?.email}</span>
 
-            <small>Intersts : </small>
-            {props.userDetails?.interests.map((element, index) => {
-                return <h4 key={index}>{element}</h4>
-            })}
+            <span className='block'>Intersts : {props.userDetails?.interests.map((element, index) => {
+                return <span className='block' key={index}>{element}</span>
+            })}</span>
+
         </div>
     )
 }
