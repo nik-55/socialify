@@ -37,6 +37,7 @@ const Display = (props: props) => {
     let reference = ref(database, "socialify/posts");
 
     function reading(interest:string[]) {
+        // can be made inside utils > date_utils.ts
         function compare(a: postitem, b: postitem) {
             if (new Date(a.postTime) < new Date(b.postTime))
                 return -1;

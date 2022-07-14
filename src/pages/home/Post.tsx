@@ -93,7 +93,7 @@ const Post = (props: props) => {
             <img src={props.element.image_src} alt={"oops"} className="post_img" />
             <p className='post_para'>{props.element.postMessage}</p>
 
-
+                                                                    {/* Increment can directly be passed as function in onClick */}
             <button className='fa-solid fa-thumbs-up ldrbtn' onClick={() => { increment() }}>
                 <small> {props.element.number_of_likes}</small></button>
 

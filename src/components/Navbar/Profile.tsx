@@ -5,7 +5,7 @@ type props = {
     userDetails?: userDetails,
     source?: string
 }
-
+// why everywhere type name props... be a little specific
 const Profile = (props: props) => {
     return (
         <div id='modal_profile'>

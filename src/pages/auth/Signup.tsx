@@ -8,6 +8,7 @@ import Org from '../../components/Org';
 const Signup: React.FC = () => {
     const navigate = useNavigate();
     const [open, setOpen] = useState<boolean>(false);
+    // put this inside constants folder
     const interest_array: string[] = ["Investing", "Technology", "Singing And Dancing", "Sports", "Reading And Writing"]
     const [user_interests, setUserInterest] = useState<string[]>([])
     function save() {

@@ -2,8 +2,10 @@ import { NavigateFunction } from "react-router-dom"
 import { clean_field, empty_validation } from "../../logic/extra"
 import { set, database, ref, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "../../services/firebase"
 
-
+//  This should be inside services > firebase > auth_service
+// Use ES6 and TS as well.
 function signup(user_interests:string[],navigate:NavigateFunction) {
+    // don't use document.getElementById() in React
     const signup_email = document.getElementById("signup_email")! as HTMLInputElement
     const signup_password = document.getElementById("signup_password")! as HTMLInputElement
     const signup_username = document.getElementById("signup_username")! as HTMLInputElement
@@ -46,6 +48,7 @@ function signup(user_interests:string[],navigate:NavigateFunction) {
 
 
 function login(navigate:NavigateFunction) {
+        // don't use document.getElementById() in React
     const login_email = document.getElementById("login_email")! as HTMLInputElement
     const login_password = document.getElementById("login_password")! as HTMLInputElement
 
@@ -55,6 +58,7 @@ function login(navigate:NavigateFunction) {
         signInWithEmailAndPassword(auth, login_email.value, login_password.value)
 
             .then((userCredential) => {
+                 // remove console.log before pushing to github
                 console.log("Logged In as " + auth.currentUser?.email);
                 clean_field([login_email, login_password]);
                 navigate({ pathname: "/" })

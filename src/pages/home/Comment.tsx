@@ -44,7 +44,7 @@ const Comment = (props: props) => {
             setCall(false);
         })
     }
-
+    // call functions only inside useEffect(), not in the component def
     if (call) reading();
 
     return (

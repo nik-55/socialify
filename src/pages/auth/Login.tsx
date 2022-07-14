@@ -12,7 +12,7 @@ const Login = () => {
         <>
             <Org />
             <div id='login_div'>
-
+                                                {/* no  need to put strings in {} , it is supported in JSX */}
                 <input placeholder='Email' className='input' id='login_email' type={"email"} autoComplete="off" />
                 <input placeholder='Password' className="input" id='login_password' type={"password"} autoComplete="off" />
                 <button id='login_btn' onClick={() => { login(navigate); }}>Login</button>

@@ -2,6 +2,7 @@ import React from 'react'
 type props = {
     interest_array: string[]
 }
+// component name can be better to make more sense
 const Interest = (props: props) => {
     return (
         <div>

@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import { getDatabase, set, ref, onValue,update,get,child,push,onChildChanged } from "firebase/database"
 import { getStorage,ref as sref,uploadBytes,getDownloadURL } from "firebase/storage";
 
+// API key should be inside an env file.
 const firebaseConfig = {
     apiKey: "AIzaSyAQ8qv_wq-1rWWse9tfVx0cmOPmGo9cVps",
     authDomain: "socialify-ea33a.firebaseapp.com",
@@ -18,5 +19,6 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 const storage = getStorage(app);
 
+// Why importing and then exporting uncustomised functions ??
 export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, set, ref, onValue, database,onAuthStateChanged,
 storage,sref,uploadBytes,getDownloadURL,update,get,child,push,onChildChanged}

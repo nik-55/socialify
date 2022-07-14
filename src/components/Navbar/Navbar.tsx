@@ -5,14 +5,15 @@ import { getApi } from '../../logic/api'
 import { useNavigate } from 'react-router-dom'
 import Profile from './Profile'
 import Modal from '../modal/Modal'
-
+// why inconsistency in type definition location
 const Navbar = (props: props) => {
+  // destructure props
   const [src, setSrc] = useState<string>();
   const navigate = useNavigate();
   const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
-
+    // async await can be used
     getApi("https://avatars.dicebear.com/api/avataaars/").then((image_link) => {
       setSrc(image_link);
     });

@@ -1,3 +1,5 @@
+// Put these inside a folder and then distibute them into files according to use case.
+
 import { User } from "firebase/auth"
 type userDetails={
     username: string,
@@ -5,6 +7,8 @@ type userDetails={
     interests: string[],
     email : string,
 }
+
+//Variable Names should make sense.
 type props={
     userDetails?: userDetails,
     user:User

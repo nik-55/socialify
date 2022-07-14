@@ -6,6 +6,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Authenciate from './pages/home/Authenciate';
 
 function App() {
+  // What's the need of react fragments here ??
   return (
     <>
       <BrowserRouter>
@@ -18,5 +19,7 @@ function App() {
     </>
   );
 }
+
+// Why is there a folder named logic and practice ??
 
 export default App;

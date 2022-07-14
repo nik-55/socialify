@@ -1,5 +1,7 @@
-
+// can be put in utils folder
 export function empty_validation(input_array: HTMLInputElement[]) {
+    // Instead of using if check directly return the bool calculated in the condition.
+    // Like =>  return length !== 0;
     if (input_array.length === 0) return false;
     for (let i = 0; i < input_array.length; i++)
         if (input_array[i].value === "") return false;
